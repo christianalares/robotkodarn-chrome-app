@@ -1,14 +1,18 @@
 {
-  "name": "avrgirl-chrome-app",
+  "name": "robotkodarn-chrome-app",
   "version": "1.0.0",
-  "description": "An example app, showing how to use avrgirl in a Chrome browser.",
+  "description": "A Chrome app using avrgirl-arduino for sending Arduino code in a Chrome browser. Forked from noopkat/avrgirl-chrome-app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "browserify background.js -o background.bundle.js",
+    "start": "http-serve"
   },
   "author": "Suz Hinton",
+  "contributors": ["Katarina Ljungdahl <katarina@folkungagatan54.se>"],
   "license": "MIT",
   "dependencies": {
-    "avrgirl-arduino": "^1.9.0"
+    "avrgirl-arduino": "^1.9.0",
+    "browserify": "^14.4.0",
+    "http-serve": "^1.0.1"
   }
 }

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Reenie+Beanie');
+
+* {
+  box-sizing: border-box;
+  color: #00233F;
+  margin: 0;
+}
+
+body {
+  align-items: center;
+  display: flex;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  width: 100vw;
+  height: 100vh;
+}
+
+.Headline {
+  font-family: "Reenie Beanie", "Lato", sans-serif;
+  font-size: 3.5rem;
+  margin-top: 0.3em;
+}
