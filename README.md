@@ -4,7 +4,7 @@
 A Chrome app using avrgirl-arduino for sending Arduino code in a Chrome browser. Forked from noopkat/avrgirl-chrome-app. 🙏
 
 ## Aren't Google removing the support for Chrome apps?
-Yes, but we are not there yet. Google will end support for Chrome apps on Windows, Mac, and Linux, but they are will still remain on Chrome OS for the "forseeable future". As a long term plan, it's probably a bad idea to build a Chrome App, but as a short term plan, a Chrome app keeps the [`Robotkodarn project`](https://github.com/Vinnovera/robotkodarn) going.
+Yes, Google will end support for Chrome apps on Windows, Mac, and Linux, but they will still remain on Chrome OS for the "forseeable future". As a long term plan, it's not a good idea to build a Chrome App (unless you are targeting only Chrome OS).
 
 ## Setup
 To start project:
