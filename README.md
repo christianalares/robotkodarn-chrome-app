@@ -15,6 +15,20 @@ $ npm install
 
 ```
 
+## Adjustments
+Before running this app locally, you usually need to updated the following things in your `manifest.json`:
+
+1. Add your site's URL in `externally_connectable`.
+2. Add `key` that correlates with your Chrome App ID. This will make sure that your users always get the same app ID when using the Chrome App locally.
+
+## Getting a key that correlates with your Chrome App ID
+1. Visit `chrome://extensions/` and chose `Pack Extension`
+2. Upload the generated CRX file on [`CRX Viewer`](https://robwu.nl/crxviewer/)
+3. Inspect the page and navigate to `Console`. Here you will find the following: `Public key (paste into manifest.json to preserve extension ID)`.
+4. Add the key in your `manifest.json` (as `key`)
+5. Voilà! You now have a key that matches your app ID. This means that the app ID always will be the same.
+
+
 ## Bundle
 ```bash
 # Make a bundle of background.js if changes has been made
