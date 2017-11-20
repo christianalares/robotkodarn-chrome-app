@@ -1,6 +1,20 @@
 var uploader = require('./lib/flash');
 
 /**
+ * When the webpage sends a pinged message we answer with a reply
+ * to let the user know it has contact with this Chrome App
+ */
+chrome.runtime.onMessageExternal.addListener( (request, sender, sendResponse) => {
+  if (request && request.message == "ping") {
+    sendResponse({
+      response: 'pong'
+    });
+  }
+  return true;
+});
+
+
+/**
  * When the webpage sends a message and we recive it,
  * pass info to uploader and request a flash to the device.
  */
