@@ -1,5 +1,5 @@
 var uploader = require('./lib/flash');
-var list = require('./lib/list')
+const Avrgirl = require('avrgirl-arduino');
 
 chrome.runtime.onMessageExternal.addListener( (request, sender, sendResponse) => {
   /**
@@ -16,12 +16,10 @@ chrome.runtime.onMessageExternal.addListener( (request, sender, sendResponse) =>
    * with connected arduino devices
   */
   } else if(request && request.message == "list") {
-    list.list(ports, error => {
-      const message = error ? { error: error } : { ports: ports }
-      sendResponse({
-        response: message
-      });
-    })
+    Avrgirl.list((error, ports) => {
+      const message = error ? { error: error } : { ports: ports };
+      sendResponse(message);
+    });
   }
   return true;
 });
