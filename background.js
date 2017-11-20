@@ -1,14 +1,27 @@
 var uploader = require('./lib/flash');
+var list = require('./lib/list')
 
-/**
- * When the webpage sends a pinged message we answer with a reply
- * to let the user know it has contact with this Chrome App
- */
 chrome.runtime.onMessageExternal.addListener( (request, sender, sendResponse) => {
+  /**
+   * When the webpage sends a pinged message we answer with a reply
+   * to let the user know it has contact with this Chrome App
+   */
   if (request && request.message == "ping") {
     sendResponse({
       response: 'pong'
     });
+
+  /**
+   * When the webpage sends "list" as message we return an array
+   * with connected arduino devices
+  */
+  } else if(request && request.message == "list") {
+    list.list(ports, error => {
+      const message = error ? { error: error } : { ports: ports }
+      sendResponse({
+        response: message
+      });
+    })
   }
   return true;
 });
