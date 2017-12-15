@@ -1,4 +1,5 @@
-var uploader = require('./lib/flash');
+const uploader = require('./lib/flash');
+const serial = require('./lib/serial');
 const Avrgirl = require('avrgirl-arduino');
 
 /**
@@ -12,13 +13,16 @@ chrome.runtime.onConnectExternal.addListener(port => {
 
       // If the message type is flash
       case 'flash':
-        // Call flash process
-        uploader.flash(msg.board, msg.file, error => {
-          // Prepare the response object
-          const message = error ? { error: error.message } : { success: true };
 
-          // Send back the status of the flash to the webpage so it knows when it's done/errored.
-          port.postMessage(message);
+        serial.close(() => {
+          // Call flash process
+          uploader.flash(msg.board, msg.file, error => {
+            // Prepare the response object
+            const message = error ? { error: error.message } : { success: true };
+
+            // Send back the status of the flash to the webpage so it knows when it's done/errored.
+            port.postMessage(message);
+          });
         });
 
         break;
@@ -39,6 +43,25 @@ chrome.runtime.onConnectExternal.addListener(port => {
         });
 
         break;
+
+      case 'serial':
+        serial.close(() => {
+          serial.listen({
+            board: msg.board,
+            baudrate: msg.baudrate
+          }, (error, data) => {
+            if(error) {
+              const messgage = {error};
+              console.log(`failed to open: ${error.message}`)
+              return port.postMessage(message);
+            }
+
+            port.postMessage({
+              serialData: new TextDecoder("utf-8").decode(data)
+            });
+          });
+        });
+      break;
 
       default:
         console.log( 'Recieved ' + msg)
