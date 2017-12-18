@@ -15,6 +15,7 @@
   "dependencies": {
     "avrgirl-arduino": "^1.9.0",
     "browserify": "^14.4.0",
-    "http-serve": "^1.0.1"
+    "http-serve": "^1.0.1",
+    "browser-serialport": "^2.1.0"
   }
 }
