@@ -1,6 +1,7 @@
 {
   "name": "Robotkodarn Chrome App",
   "description": "Sends Arduino code in a Chrome browser.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx3EkCs2HBhFSgjaRCmBxgTiUlDT0l7JAZdAHGclVcocuaHqe133rBzVkRSSTtFGM+yYWwZ1KD5jMIVcLC4UE7v01gmNpc7H6dEyVVEqCgj2ud4GtQSErkq2/11K8al5LhSibV9IdjoNuAKQbXb5nTWe/rIq3nej5dsoVTH02SFKbxfq5vkgpSAjOD3/ZhjfoAZoBaD77yCCJBaKOBIpYv2ritR8b0Fykhjfo8Q7IP7nWxkE8P0QrziO1hy38oU84KnQUu3fZqiDoT1qZoIKE1E9cVO/c+BnTSDrahxg4nQ7JI4JSFTOCKYbFh5MlUrBSwkQH+x5WhKucbo6bpRvSqQIDAQAB",
   "version": "1.0.0",
   "manifest_version": 2,
   "app": {
