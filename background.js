@@ -51,7 +51,7 @@ chrome.runtime.onConnectExternal.addListener(port => {
             baudrate: msg.baudrate
           }, (error, data) => {
             if(error) {
-              const messgage = {error};
+              const message = {error};
               console.log(`failed to open: ${error.message}`)
               return port.postMessage(message);
             }
