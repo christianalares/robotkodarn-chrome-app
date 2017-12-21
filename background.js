@@ -2,6 +2,8 @@ const uploader = require('./lib/flash');
 const serial = require('./lib/serial');
 const Avrgirl = require('avrgirl-arduino');
 
+const customBoards = require('./lib/boards');
+
 /**
  * When the webpage sends a message and we recive it,
  * pass info to uploader and request a flash to the device.
@@ -15,8 +17,14 @@ chrome.runtime.onConnectExternal.addListener(port => {
       case 'flash':
 
         serial.close(() => {
+          let board = msg.board;
+
+          if(msg.board in customBoards) {
+            board = customBoards[msg.board];
+          }
+
           // Call flash process
-          uploader.flash(msg.board, msg.file, error => {
+          uploader.flash(board, msg.file, error => {
             // Prepare the response object
             const message = error ? { error: error.message } : { success: true };
 
