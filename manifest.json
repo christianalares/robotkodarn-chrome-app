@@ -1,7 +1,7 @@
 {
   "name": "Robotkodarn Chrome App",
   "description": "Sends Arduino code in a Chrome browser.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "app": {
     "background": {
