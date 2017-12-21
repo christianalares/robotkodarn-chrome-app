@@ -4,6 +4,33 @@ const Avrgirl = require('avrgirl-arduino');
 
 const customBoards = require('./lib/boards');
 
+const checkZumoBootloaderMode = (done) => {
+  let retries = 30;
+
+  const performCheck = () => {
+    Avrgirl.list((error, ports) => {
+      if(error) return done(error.message);
+
+      const zumoBootPort = ports.filter((port) => port.productId === '0x101' && port.comName.indexOf("tty") > -1).length;
+
+      retries--;
+
+      if(!zumoBootPort) {
+        // Send back the status of the flash to the webpage so it knows when it's done/errored.
+        done();
+
+      } else if(retries <= 0) {
+        done('timeout');
+
+      } else {
+        setTimeout(() => performCheck(), 1000);
+      }
+    });
+  }
+
+  performCheck();
+};
+
 /**
  * When the webpage sends a message and we recive it,
  * pass info to uploader and request a flash to the device.
@@ -26,10 +53,17 @@ chrome.runtime.onConnectExternal.addListener(port => {
           // Call flash process
           uploader.flash(board, msg.file, error => {
             // Prepare the response object
-            const message = error ? { error: error.message } : { success: true };
+            let message = error ? { error: error.message } : { success: true };
 
-            // Send back the status of the flash to the webpage so it knows when it's done/errored.
-            port.postMessage(message);
+            if(error) return port.postMessage(message);
+
+            const done = (error) => {
+              if(error) message = {error};
+
+              port.postMessage(message);
+            }
+
+            checkZumoBootloaderMode(done);
           });
         });
 
@@ -68,6 +102,14 @@ chrome.runtime.onConnectExternal.addListener(port => {
               serialData: new TextDecoder("utf-8").decode(data)
             });
           });
+        });
+      break;
+
+      case 'version':
+        const version = chrome.runtime.getManifest().version;
+
+        port.postMessage({
+          version
         });
       break;
 
