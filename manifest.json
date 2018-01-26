@@ -1,7 +1,7 @@
 {
   "name": "Robotkodarn Chrome App",
   "description": "Sends Arduino code in a Chrome browser.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "manifest_version": 2,
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnMn8qWKrHbiSvAfYN/PMpOtySw3ASKehvFBwXM4bGeAD0JA5aFu35qAe4pSziYnjtKTPoEGkvBaU8zOM2JjbM+SMCIVJ4qJH1kca6XNXPNqVug0dgtsiW13d+a0k2i6qub8g7qaCaog8JDMas3EcNpQZX2/unTsEgam2Ci0MnVW7ONBLAD2wkptknJsQLXKzLl+P+tZARFL61CWi3nqQRmENZ34PfsUb1lb15l1iOf1WdqwQQxxK6OCZGjYALyPbWIVLNrNIfcDzj4CkYv6IwKu5Ty9EErnUBk07nCVE2rFpP3cZDf7VeKmdoCgV+hyvL24cBAeoFWsqxNYD9UJb9wIDAQAB",
   "app": {
@@ -10,7 +10,7 @@
     }
   },
   "externally_connectable": {
-    "matches": ["https://robotkodarn.now.sh/*", "https://robotkodarn-test.now.sh/*", "http://localhost:3000/", "http://localhost:8000/*", "http://robotkodarn-demo.now.sh/*"]
+    "matches": ["https://robotkodarn.now.sh/*", "https://robotkodarn-test.now.sh/*", "http://localhost:3000/", "http://localhost:8000/*", "http://robotkodarn-demo.now.sh/*", "https://beta.robotkodarn.se/*", "https://test.robotkodarn.se/*"]
   },
   "permissions": ["serial"],
   "icons": { "16": "robotkodarn-16.png", "128": "robotkodarn-128.png" }
