@@ -11,7 +11,12 @@
     }
   },
   "externally_connectable": {
-    "matches": ["https://robotkodarn.now.sh/*", "https://robotkodarn-test.now.sh/*", "http://localhost:3000/", "http://localhost:8000/*", "http://robotkodarn-demo.now.sh/*", "https://beta.robotkodarn.se/*", "https://test.robotkodarn.se/*"]
+    "matches": [
+      "http://localhost:3000/",
+      "http://localhost:8000/*",
+      "https://robotkodarn-test.now.sh/*",
+      "https://beta.robotkodarn.se/*"
+    ]
   },
   "permissions": ["serial"],
   "icons": { "16": "robotkodarn-16.png", "128": "robotkodarn-128.png" }
