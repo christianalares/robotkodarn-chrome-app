@@ -9,7 +9,10 @@
   },
   "author": "Suz Hinton",
   "contributors": [
-    "Katarina Ljungdahl <katarina@folkungagatan54.se>"
+    "Katarina Ljungdahl <katarina@folkungagatan54.se>",
+    "Christian Alares <christian.alares@vinnovera.se>",
+    "Mattias Söderström <mattias.soderstrom@vinnovera.se>",
+    "Per Stenström <per@vinnovera.se>"
   ],
   "license": "MIT",
   "dependencies": {
